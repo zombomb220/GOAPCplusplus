@@ -10,14 +10,15 @@ private:
 	int _currentIndex = 0;
 	int _incrementAmount = 10;
 
-	KeyValuePair ** _collection;
-	KeyValuePair ** _buffer;
+	KeyValuePair** _collection;
+	KeyValuePair** _buffer;
 
 public:
 	HashSet();
-	void Add(KeyValuePair newKVP);
+	void Add(KeyValuePair* newKVP);
 
-	KeyValuePair GetFromIndex(int index);
+	KeyValuePair* GetFromIndex(int index);
+	int Length();
 
 	~HashSet();
 };

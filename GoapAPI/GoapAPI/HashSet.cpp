@@ -1,10 +1,10 @@
 #include "HashSet.h"
-
+#include <stdio.h>
 HashSet::HashSet() {
 	_collection = new KeyValuePair*[_initialMax];
 }
 
-void HashSet::Add(KeyValuePair newKVP)
+void HashSet::Add(KeyValuePair *newKVP)
 {
 	if (_currentIndex > _currentMax) {
 
@@ -14,7 +14,7 @@ void HashSet::Add(KeyValuePair newKVP)
 		for (int i = 0; i < _currentMax; i++)
 		{
 			_buffer[i] = _collection[i];
-			delete[] _collection;
+			delete[] *_collection;
 		}
 
 		//increase size of _collection
@@ -28,19 +28,25 @@ void HashSet::Add(KeyValuePair newKVP)
 		delete[] _buffer;
 
 		_currentIndex++;
-		_collection[_currentIndex] = &newKVP;
+		_collection[_currentIndex] = newKVP;
 	}
 	else
 	{		
-		_collection[_currentIndex] = &newKVP;
+		_collection[_currentIndex] = newKVP;
 		_currentIndex++;
 	}
 }
 
-KeyValuePair HashSet::GetFromIndex(int index)
+KeyValuePair* HashSet::GetFromIndex(int index)
 {
-	return  *_collection[index];
+	return  _collection[index];
 }
+
+int HashSet::Length()
+{
+	return _currentIndex;
+}
+
 
 HashSet::~HashSet()
 {

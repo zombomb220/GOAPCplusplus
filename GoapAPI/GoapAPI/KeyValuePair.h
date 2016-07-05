@@ -1,15 +1,14 @@
 #pragma once
 class __declspec(dllexport) KeyValuePair
 {
-private:
-	static const int _maxKeyLength = 50;
-	char _key[_maxKeyLength];
-	bool _value;
 public:
+	static const int _maxKeyLength = 50;
 	KeyValuePair(char key[_maxKeyLength], bool value);
 
 	bool GetValue();
-	char GetKey();
+	char* GetKey();
 
-	~KeyValuePair();
+private:
+	char _key[_maxKeyLength];
+	bool _value;
 };

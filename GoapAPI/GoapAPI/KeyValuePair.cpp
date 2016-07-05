@@ -14,13 +14,8 @@ bool KeyValuePair::GetValue()
 	return _value;
 }
 
-char KeyValuePair::GetKey()
+char * KeyValuePair::GetKey()
 {
-	return *_key;
+	return _key;
 }
-
-KeyValuePair::~KeyValuePair()
-{		
-	delete[] _key;
-	delete &_value;
-}
+ 
