@@ -6,7 +6,7 @@ HashSet::HashSet() {
 
 void HashSet::Add(KeyValuePair *newKVP)
 {
-	if (_currentIndex > _currentMax) {
+	if (_currentIndex >= _currentMax) {
 
 		_buffer = new KeyValuePair*[_currentMax];
 
